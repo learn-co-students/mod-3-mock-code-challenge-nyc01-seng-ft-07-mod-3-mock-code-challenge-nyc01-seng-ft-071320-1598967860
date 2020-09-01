@@ -77,18 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
   
-
-
-
-  
-
-  
-  
-  
-  
-  
-  
-  
   getDogs()
   submitDog()
   clickHandler()
