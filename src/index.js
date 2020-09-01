@@ -40,18 +40,19 @@ function button(){
                     breed: form.breed.value,
                     sex: form.sex.value
                 }
+                console.log(dog)
                 fetch('http://localhost:3000/dogs/'+id, {
                     method: "PATCH",
                     headers: {
                     "Content-type": "application/json",
                     "accept": "application/json"
                     },
-                    body: JSON.stringify({
+                    body: JSON.stringify(
                         dog
-                    }) //This is the end of the body
+                    ) //This is the end of the body
                 })//This is the end of the fetch
-                .then(res=>res.json())
-                .then(console.log)
+                form.reset
+                get()
             })//This is the end of the submit editor
         }//this is the end of my if statement for edit function 
         else{
