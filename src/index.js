@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dogTr = ce('tr')
     tBody.append(dogTr)
     dogTr.innerHTML = `
-        <td>Dog *Name*</td>
-        <td>*Dog Breed*</td>
-        <td>*Dog Sex*</td>
-        <td><button>Edit</button></td>
+        <td>${dog.name}</td>
+        <td>${dog.breed}</td>
+        <td>${dog.sex}</td>
+        <td><button>Edit Dog</button></td>
       `
   }  
   
