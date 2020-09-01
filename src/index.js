@@ -1,9 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const baseUrl = "http://localhost:3000/dogs"
+  const baseUrl = "http://localhost:3000/dogs/"
 
   // click/Events
+  const submitHandler = () => {
+
+    document.addEventListener('submit', e => {
+      e.preventDefault()
+      const button = e.target
+      button.dataset.id = document.querySelector("#dog-form > input[type=submit]:nth-child(4)").dataset.id
+      const dogId = button.dataset.id
+      console.dir(dogId)
+      const dogName = document.querySelector("#dog-form > input[type=text]:nth-child(1)").value
+      const dogBreed = document.querySelector("#dog-form > input[type=text]:nth-child(2)").value
+      const dogSex = document.querySelector("#dog-form > input[type=text]:nth-child(3)").value
+
+      const options = {
+        method:'PATCH',
+        headers:{
+          'Content-Type': 'application/json',
+          'accept': 'application/json'
+        },
+        body: JSON.stringify({name:dogName, breed:dogBreed, sex:dogSex})
+      }
+
+      fetch(baseUrl + dogId, options)
+      .then(response => response.json())
+      .then(dog => {
+        renderDog(dog)
+      })
+    })
+  }
+
   const clickHandler = () => {
     document.addEventListener('click', e => {
+      const dogId = e.target.dataset.id
       if(e.target.textContent === 'Edit'){
         const clicked = e.target.closest('tr').children
         const dogName = clicked[0].innerText
@@ -14,8 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const formBreed = document.querySelector("#dog-form > input[type=text]:nth-child(2)").value = dogBreed
         const formSex = document.querySelector("#dog-form > input[type=text]:nth-child(3)").value = dogSex
 
-
-
+        const dogRow = e.target.closest('tr')
+        const subBttn = document.querySelector("#dog-form > input[type=submit]:nth-child(4)")
+        subBttn.dataset.id = dogId
       }
     })
   }
@@ -45,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-
+  submitHandler()
   clickHandler()
   getDogs()
 })
