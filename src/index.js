@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const dogUrl = "http://localhost:3000/dogs/"
-    const dogContainer = document.querySelector('.center')
+    const tableBody = document.querySelector('#table-body')
     const submitForm = document.querySelector('#dog-form')
     const input = document.querySelectorAll('input')
 
@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     const renderDog = (dogObj) => {
-        const dogTable = document.createElement('table')
+        const dogTable = document.createElement('tr')
         dogTable.id = dogObj.id
-        dogContainer.append(dogTable)
+        tableBody.append(dogTable)
         dogTable.innerHTML = 
-        `<tr><td class="dog-name">${dogObj.name}</td> <td class="dog-breed">${dogObj.breed}</td> <td class="dog-sex">${dogObj.sex} </td> <td><button class="edit-dog-btn">Edit</button></td></tr>`
+        `<td class="dog-name">${dogObj.name}</td> <td class="dog-breed">${dogObj.breed}</td> <td class="dog-sex">${dogObj.sex} </td> <td><button class="edit-dog-btn">Edit</button></td>`
     }
 
     
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 input[2]['value'] = dogSex
 
                 submitForm.addEventListener('submit', function(e){
-                    e.preventDefault()
+                    // e.preventDefault()
 
                     const options = {
                     method: 'PATCH',
@@ -44,17 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({name: input[0]['value'], breed: input[1]['value'], sex: input[2]['value']})
                     }
 
-                    fetch(dogUrl + thisDog.parentNode.parentNode.parentNode.parentNode.id, options)
+                    fetch(dogUrl + thisDog.parentNode.parentNode.id, options)
                     .then(resp => resp.json())
                     .then(updatedDog => editDog(updatedDog))
 
 
                     const editDog = (updatedDog) => {
                         // find existing dog's table by id
-                        console.log(updatedDog)
                         //existing dog's table.innerHTML = 
-                        `<tr><td class="dog-name">${updatedDog.name}</td> <td class="dog-breed">${updatedDog.breed}</td> <td class="dog-sex">${updatedDog.sex} </td> <td><button class="edit-dog-btn">Edit</button></td></tr>`
+                        `<td class="dog-name">${updatedDog.name}</td> <td class="dog-breed">${updatedDog.breed}</td> <td class="dog-sex">${updatedDog.sex} </td> <td><button class="edit-dog-btn">Edit</button></td>`
                     }
+
+                    fetchDogs()
                     
                 })
             }
