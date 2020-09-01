@@ -33,7 +33,7 @@
     {
       "id": 6,
       "name": "OreoCreamer",
-      "breed": "English Springer",
+      "breed": "Pudge",
       "sex": "male"
     },
     {
@@ -44,7 +44,7 @@
     },
     {
       "id": 8,
-      "name": "Chloe",
+      "name": "Coraline",
       "breed": "Dandie Terrier",
       "sex": "male"
     },
@@ -52,7 +52,7 @@
       "id": 9,
       "name": "Shelby",
       "breed": "Kuvasz",
-      "sex": "male"
+      "sex": "third gender"
     },
     {
       "id": 10,
@@ -62,7 +62,7 @@
     },
     {
       "id": 11,
-      "name": "Jasper",
+      "name": "Jeeves",
       "breed": "Redbone",
       "sex": "female"
     },
@@ -74,7 +74,7 @@
     },
     {
       "id": 13,
-      "name": "Lady",
+      "name": "Lady No-Hair",
       "breed": "Mexicanhairless",
       "sex": "female"
     },
@@ -86,13 +86,13 @@
     },
     {
       "id": 15,
-      "name": "Pepper",
+      "name": "Sgt. Pepper",
       "breed": "Westhighland Terrier",
       "sex": "female"
     },
     {
       "id": 16,
-      "name": "Buddy",
+      "name": "Buddy 'n Me",
       "breed": "Walker Hound",
       "sex": "female"
     },
@@ -104,19 +104,19 @@
     },
     {
       "id": 18,
-      "name": "Chance",
-      "breed": "Toy Terrier",
+      "name": "Chancie",
+      "breed": "Fudgy Pudgy",
       "sex": "male"
     },
     {
       "id": 19,
-      "name": "Penny",
+      "name": "Penny Whistle",
       "breed": "Wheaten Terrier",
       "sex": "male"
     },
     {
       "id": 20,
-      "name": "Coco",
+      "name": "Coconut Meat",
       "breed": "Affenpinscher",
       "sex": "female"
     }
