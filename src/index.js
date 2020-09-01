@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
    √ 1. ADD EVENT LISTENER TO FORM SUBMIT
    √ 2. SEND A PATCH REQUEST
    √ 3. RENDER NEW DOG LIST
+   √ 4. CLEAR FORM
       */
 
 
