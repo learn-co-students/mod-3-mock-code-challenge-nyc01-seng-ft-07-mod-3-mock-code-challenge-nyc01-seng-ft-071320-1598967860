@@ -68,18 +68,19 @@ render list of dogs
 add click listener to the edit button of each dog tr
     if e.target matches '.edit-dog'
         e.preventDefault() actually don't need this for button element
-        set form["name"].value equal to the parent of the parent of e.target
+        declare const to select form
+        set form["name"].value equal to the appropriate child of the parent of the parent of e.target
             play with in console to check
             if works, do the same for form["breed"].value
             if works, do the same for form["sex"].value
         make a function called populateEditField that does all this and returns the dog's id from the dataset.id of the parent of the parent of e.target
-        set a variable for dogId equal to the function
-            make sure this variable is declared so that it's within scope to use for the dogEdit function
-    if e.target matches the submit of #dog-form
+
+        set form.dataset.dogId equal to the dog row's dataset.id
+    if e.target matches the submit button of #dog-form
         e.preventDefault()
         set the values of the form fields to an object called editDogObj
         set a configObj with method of "PATCH", headers key, and body key with JSON.stringify of editDogObj
-        call dogEdit function which takes the above objects and the dog's id as arguments 
+        call dogEdit function which takes configObj as argument
             dogEdit:
                 sends post request to interpolated string of url with id argument
                 in second .then:

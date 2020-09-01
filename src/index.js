@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const DOG_URL = 'http://localhost:3000/dogs'
-    let DOG_ID = ''
 
     getDogs()
 
@@ -31,11 +30,55 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    const populateEditFields = (button) =>  {
+        const form = document.getElementById('dog-form')
+        const dogRow = button.parentElement.parentElement
+        const id = dogRow.dataset.id
+        
+        form["name"].value = dogRow.children[0].innerText
+        form["breed"].value = dogRow.children[1].innerText
+        form["sex"].value = dogRow.children[2].innerText
+        form.dataset.dogId = id
+    }
+
+    const resetDogsTable = () => {
+        const table = document.querySelector('table')
+        const dogRows = document.querySelectorAll('.dog-row')
+        dogRows.forEach(dogRow => table.remove(dogRow))
+    }
+
+    const dogEdit = (id, configObj) => {
+        fetch(`${DOG_URL}/${id}`, configObj)
+            .then(res => res.json())
+            .then(dog => {
+                resetDogsTable()
+                getDogs()
+            })
+    }
+
     document.addEventListener("click", (e)=>{
         const button = e.target
+        const form = document.getElementById('dog-form')
 
         if(button.matches('.edit-dog')){
-            
+            populateEditFields(button)
+        } else if (button === form.children[3]){
+            e.preventDefault()
+            const id = form.dataset.dogId
+            const editDogObj = {
+                "name": form["name"].value,
+                "breed": form["breed"].value,
+                "sex": form["sex"].value
+            }
+            const configObj = {
+                method: "PATCH",
+                headers: {
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                body: JSON.stringify(editDogObj)
+            }
+            dogEdit(id, configObj)
         }
 
     })
