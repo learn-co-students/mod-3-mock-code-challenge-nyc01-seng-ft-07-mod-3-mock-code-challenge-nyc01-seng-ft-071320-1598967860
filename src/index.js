@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function reloadDogs(dogs) {
     while (tableBody.nextElementSibling !== null) {
       tableBody.nextElementSibling.remove()
-      debugger
+      
     }
     loadDogs(dogs)
   }
