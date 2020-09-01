@@ -28,17 +28,46 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(resp => resp.json())
             .then(renderEditDogForm)
         }
-      }
+      } 
     })
   }
 
   function renderEditDogForm(dogObj) {
     const dogForm = document.querySelector('#dog-form')
+    const submitBtn = dogForm.closest('submit')
     dogForm.name.value = dogObj.name
     dogForm.breed.value = dogObj.breed
     dogForm.sex.value = dogObj.sex
+    dogForm.submit.dataset = dogObj.id
   }
 
+  function submitHandler() {
+    document.addEventListener('submit', e => {
+      const button = e.target
+      const dogId = button.submit.dataset
+      e.preventDefault()
+
+      const config = {
+        method: 'PATCH',
+        headers: {
+          "Content-Type": "application/json",
+          "Accpets": "application/json"
+        },
+        body: JSON.stringify({
+          name: button.name.value,
+          breed: button.breed.value,
+          sex: button.sex.value
+        }) 
+      }
+      
+      fetch(baseURL + dogId, config)
+        .then(resp => resp.json())
+        .then(console.log)
+
+    })
+  }
+
+  submitHandler()
   clickHandler()
   loadDogs()
 })
@@ -48,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*
 
-find button element
-   get values from dog's row 
-  pass to add to value of form 
+√find button element
+ √  get values from dog's row 
+√  pass to add to value of form 
 
 on submit of form 
   send patch request to db with new values
