@@ -87,20 +87,24 @@ function submitEdittedData(dogID){
 }
 
 function patchRequest(newDogName,newDogBreed,newDogSex, id){
-    console.log({newDogName,newDogBreed,newDogSex, id})
+    console.log({newDogName,newDogBreed,newDogSex,id})
     fetch('http://localhost:3000/dogs/'+id,{
         method: "PATCH",
-        header:{
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+        headers:{
+            'content-type': 'application/json',
+            'accept': 'application/json'
         },
         body: JSON.stringify({
-            name: newDogName,
-            breed: newDogBreed,
-            sex: newDogSex
+            "name": newDogName,
+            "breed": newDogBreed,
+            "sex": newDogSex,
         })
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(newDog =>{
+        let tableData = document.querySelector('#table-body');
+        tableData.innerHTML ='';
+        fetchDogs()
+    })
 
 }

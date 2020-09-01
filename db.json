@@ -2,9 +2,9 @@
   "dogs": [
     {
       "id": 1,
-      "name": "Baby",
-      "breed": "Scottish Deerhound",
-      "sex": "male"
+      "name": "Harvey",
+      "breed": "Irish Spaniel",
+      "sex": "female"
     },
     {
       "id": 2,
@@ -16,13 +16,13 @@
       "id": 3,
       "name": "Snickers",
       "breed": "Dachshund",
-      "sex": "female"
+      "sex": "male"
     },
     {
       "id": 4,
       "name": "Harvey",
       "breed": "Irish Spaniel",
-      "sex": "male"
+      "sex": "female"
     },
     {
       "id": 5,
@@ -44,15 +44,15 @@
     },
     {
       "id": 8,
-      "name": "Chloe",
-      "breed": "Dandie Terrier",
-      "sex": "male"
+      "name": "Shelby",
+      "breed": "Kuvasz",
+      "sex": "female"
     },
     {
       "id": 9,
       "name": "Shelby",
       "breed": "Kuvasz",
-      "sex": "male"
+      "sex": "female"
     },
     {
       "id": 10,
