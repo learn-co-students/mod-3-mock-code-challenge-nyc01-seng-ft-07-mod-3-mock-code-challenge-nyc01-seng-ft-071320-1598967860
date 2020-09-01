@@ -52,13 +52,21 @@ function button(){
                     ) //This is the end of the body
                 })//This is the end of the fetch
                 form.reset
+                const table = document.querySelector('table')
+                table.innerHTML=""
+                table.innerHTML=`<thead class='blue'>
+                <tr class='padding'>
+                  <th class='padding center'>Name</th>
+                  <th class='padding center'>Breed</th>
+                  <th class='padding center'>Sex</th>
+                  <th class='padding center'>Edit Dog</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+              </tbody>`
                 get()
+                form.lastElementChild.disabled = true
             })//This is the end of the submit editor
         }//this is the end of my if statement for edit function 
-        else{
-            // form.lastElementChild.disabled = true
-            // form.reset()
-            // alert("Form has been reseted. Please click edit button to make amendments")
-        }
     })//this is the end of add event listener
 }//this is the end of edit button

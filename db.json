@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "james",
-      "breed": "human",
+      "breed": "gold retriever",
       "sex": "male",
       "dog": {
         "name": "james",
@@ -19,9 +19,9 @@
     },
     {
       "id": 3,
-      "name": "Snickers",
-      "breed": "Dachshund",
-      "sex": "female"
+      "name": "Joe",
+      "breed": "BigDog",
+      "sex": "male"
     },
     {
       "id": 4,
@@ -43,9 +43,9 @@
     },
     {
       "id": 7,
-      "name": "Diamond",
+      "name": "Ian",
       "breed": "Labrador",
-      "sex": "female"
+      "sex": "male"
     },
     {
       "id": 8,
@@ -91,9 +91,9 @@
     },
     {
       "id": 15,
-      "name": "Pepper",
-      "breed": "Westhighland Terrier",
-      "sex": "female"
+      "name": "Ian",
+      "breed": "Labrador",
+      "sex": "male"
     },
     {
       "id": 16,
