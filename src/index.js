@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <td><button>Edit</button></td></tr>
         `
         hiddenId.innerText = `${dog.id}`
+        dogTable.dataset.id = hiddenId.innerText
         table.append(dogTable)
 
         dogTable.addEventListener("click", (e) => {
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
        formSex.value = dogInfo.dogSex;
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            form.reset();
+            
             
             let configObj = {
                 method: 'PATCH',
@@ -65,18 +66,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 sex: formSex.value
             })
               };
-
+             
               fetch(BASEURL + dogInfo.dogId, configObj)
               .then(resp => resp.json())
-              .then(data => console.log(data))
+              .then(data => updateTable(data))
+              form.reset(); // i put this on line 54 and it was clearing out all the data and giving me an epmty str so i had to move it down here
         })
     }
 
-    const updateDog = (data) => {
-        console.log(data)
+    const updateTable = (data) => {
+        const dogTable = document.getElementById("table-body");
+        const dogRow = dogTable.querySelector(`[data-id~='${data.id}']`);
+        const dogTr = dogRow.firstElementChild.firstElementChild
+        dogTr.innerHTML = `
+        <td>${data.name}</td> 
+        <td>${data.breed}</td> 
+        <td>${data.sex}</td> 
+        <td><button>Edit</button></td>
+        `
     }
-
-
 
     getDogs();
 })
