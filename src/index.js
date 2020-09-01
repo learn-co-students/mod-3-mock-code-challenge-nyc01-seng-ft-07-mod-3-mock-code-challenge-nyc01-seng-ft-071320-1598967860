@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 input[2]['value'] = dogSex
 
                 submitForm.addEventListener('submit', function(e){
-                    // e.preventDefault()
+                    e.preventDefault()
 
                     const options = {
                     method: 'PATCH',
@@ -53,8 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         // find existing dog's table by id
                         //existing dog's table.innerHTML = 
                         `<td class="dog-name">${updatedDog.name}</td> <td class="dog-breed">${updatedDog.breed}</td> <td class="dog-sex">${updatedDog.sex} </td> <td><button class="edit-dog-btn">Edit</button></td>`
+                        //this is working and im not sure why.
                     }
 
+                    // README suggesting fetching all of the dogs again but it still won't update without refreshing, 50/50
                     fetchDogs()
                     
                 })

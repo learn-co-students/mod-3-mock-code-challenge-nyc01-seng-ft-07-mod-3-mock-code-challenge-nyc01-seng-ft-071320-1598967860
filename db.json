@@ -3,12 +3,12 @@
     {
       "id": 1,
       "name": "Baby",
-      "breed": "Scottish Deerhound",
+      "breed": "Catahoula Leopard Dog",
       "sex": "female"
     },
     {
       "id": 2,
-      "name": "Teddyb",
+      "name": "Teddy",
       "breed": "Rhodesian Ridgeback",
       "sex": "female"
     },
@@ -116,7 +116,7 @@
     },
     {
       "id": 20,
-      "name": "Momo",
+      "name": "Mimi",
       "breed": "Affenpinscher",
       "sex": "male"
     }
