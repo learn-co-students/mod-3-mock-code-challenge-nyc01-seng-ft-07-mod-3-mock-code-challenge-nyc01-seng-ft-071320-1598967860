@@ -155,6 +155,18 @@
       "breed": "Retriever",
       "sex": "Male",
       "id": 26
+    },
+    {
+      "name": "Miso",
+      "breed": "Chihuahua",
+      "sex": "Male",
+      "id": 27
+    },
+    {
+      "name": "asdf",
+      "breed": "asdf",
+      "sex": "asdf",
+      "id": 28
     }
   ]
 }

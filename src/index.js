@@ -82,10 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', e => {
             if (e.target.matches('edit-button')) {
                 const edit = e.target
-                
+                let dogId = edit.dataset.num
+                fetchDog(dogId)
 
             }
         })
+    }
+
+    const fetchDog = (dogId) => {
+        fetch(dogUrl + dogId)
+        .then(response =>response.json())
+        .then(renderDogInfo)
+    }
+
+    const patchDog = (dogId, value) => {
+        const options = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application.json"
+            },
+            body: JSON,stringify({  })
+        }
     }
 
 
