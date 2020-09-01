@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const baseUrl = "http://localhost:3000/dogs/"
-
+  const dogsTable = document.querySelector('#table-body')
   // click/Events
   const submitHandler = () => {
 
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       button.dataset.id = document.querySelector("#dog-form > input[type=submit]:nth-child(4)").dataset.id
       const dogId = button.dataset.id
       console.dir(dogId)
+
       const dogName = document.querySelector("#dog-form > input[type=text]:nth-child(1)").value
       const dogBreed = document.querySelector("#dog-form > input[type=text]:nth-child(2)").value
       const dogSex = document.querySelector("#dog-form > input[type=text]:nth-child(3)").value
@@ -26,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(baseUrl + dogId, options)
       .then(response => response.json())
       .then(dog => {
-        renderDog(dog)
+        dogsTable.innerHTML = ""
+        getDogs()
       })
+      
     })
   }
 

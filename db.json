@@ -2,13 +2,13 @@
   "dogs": [
     {
       "id": 1,
-      "name": "Baby",
+      "name": "Baby Dog",
       "breed": "some breed",
       "sex": "male"
     },
     {
       "id": 2,
-      "name": "Teddies",
+      "name": "Teddy",
       "breed": "Rhodesian Ridgeback",
       "sex": "female"
     },
@@ -116,7 +116,7 @@
     },
     {
       "id": 20,
-      "name": "Coco",
+      "name": "Coco Chanel",
       "breed": "Affenpinscher",
       "sex": "female"
     }
