@@ -36,17 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 
     const renderDogTable = (dogs) => {
-        const dogTable = document.querySelector('#table-body')
+        const dogTable = document.querySelector('table')
         for(dog of dogs) {
             const tr = document.createElement('tr')
             const td = document.createElement('td')
-            td.innerHTML = `
+            tr.innerHTML = `
             <td>${dog.name}</td>
             <td>${dog.breed}</td>
             <td>${dog.sex}</td>
             <td><button class="edit-button" data-id=${dog.id}>Edit</button></td>
             `
-            tr.append(td)
+            td.append(tr)
             dogTable.append(tr)
         }
     }
