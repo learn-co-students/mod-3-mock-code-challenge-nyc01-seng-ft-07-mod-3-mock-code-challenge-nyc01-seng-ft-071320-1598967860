@@ -2,14 +2,9 @@
   "dogs": [
     {
       "id": 1,
-      "name": "Baby boy",
+      "name": "Baby",
       "breed": "Scottish Deerhound",
-      "sex": "male",
-      "dogObj": {
-        "name": "Baby boy",
-        "breed": "Scottish Deerhound",
-        "sex": "male"
-      }
+      "sex": "male"
     },
     {
       "id": 2,
@@ -111,12 +106,7 @@
       "id": 18,
       "name": "Chance",
       "breed": "Toy Terrier",
-      "sex": "male",
-      "dogObj": {
-        "name": "Chance-adsf",
-        "breed": "Toy Terrier",
-        "sex": "male"
-      }
+      "sex": "male"
     },
     {
       "id": 19,
@@ -128,12 +118,7 @@
       "id": 20,
       "name": "Coco",
       "breed": "Affenpinscher",
-      "sex": "female",
-      "dogObj": {
-        "name": "Coco-co",
-        "breed": "Affenpinscher",
-        "sex": "female"
-      }
+      "sex": "female"
     }
   ]
 }

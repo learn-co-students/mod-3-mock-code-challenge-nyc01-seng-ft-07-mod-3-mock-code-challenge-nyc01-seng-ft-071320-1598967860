@@ -1,20 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   const baseURL = 'http://localhost:3000/dogs/'
-
+  const tableBody = document.querySelector('#table-body')
+  
   function loadDogs() {
     fetch(baseURL)
-      .then(resp => resp.json())
-      .then(dogs => dogs.forEach(dog => renderDog(dog)))
+    .then(resp => resp.json())
+    .then(dogs => dogs.forEach(dog => renderDog(dog)))
   }
+  
+
+
 
   function renderDog(dog) {
-    const tabelBody = document.querySelector('#table-body')
-    tabelBody.insertAdjacentHTML('afterend', `
+    tableBody.insertAdjacentHTML('afterend', `
     <tr><td>${dog.name}</td> 
     <td>${dog.breed}</td> 
     <td>${dog.sex}</td> 
     <td><button data-dog-id=${dog.id}>Edit</button></td></tr>
     `)
+    // debugger
+
   }
 
   function clickHandler() {
@@ -62,9 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
       
       fetch(baseURL + dogId, config)
         .then(resp => resp.json())
-        .then(console.log)
+        .then(reloadDogs())
 
     })
+  }
+
+  function reloadDogs(dogs) {
+    while (tableBody.nextElementSibling !== null) {
+      tableBody.nextElementSibling.remove()
+      debugger
+    }
+    loadDogs(dogs)
   }
 
   submitHandler()
@@ -81,10 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
  √  get values from dog's row 
 √  pass to add to value of form 
 
-on submit of form 
-  send patch request to db with new values
+√on submit of form 
+ √ send patch request to db with new values
 
-form reflects changes added to db
+√form reflects changes added to db
+  reset the form before get request
   make a get request after patch request is sent
+
+
 
   */
