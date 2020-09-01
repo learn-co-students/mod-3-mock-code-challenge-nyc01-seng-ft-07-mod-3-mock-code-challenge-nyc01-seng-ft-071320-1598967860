@@ -78,9 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
         fetch(baseURL + dogId, config)
-        .then(resp => resp.json())
-        .then(dogs => dogs)
-        table.innerHTML = ""
+        .then(resp => {
+            if(resp.status === 200){
+                table.innerHTML = ""
+                getDogs();
+            }
+        })
+    
         getDogs();
     }
     

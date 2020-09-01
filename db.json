@@ -2,9 +2,9 @@
   "dogs": [
     {
       "id": 1,
-      "name": "I forgot the name",
-      "breed": "another breed",
-      "sex": "male"
+      "name": "susie",
+      "breed": "pug",
+      "sex": "female"
     },
     {
       "id": 2,
