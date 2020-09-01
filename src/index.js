@@ -7,7 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(DOG_URL)
             .then(response => response.json())
             .then(dogs => renderDogs(dogs))
-            .catch(err => console.log(err.message))
+            // .catch(err => console.log(err.message))
+    }
+
+    const renderDogs = (dogs) => {
+        dogs.forEach(dog => {
+            renderDog(dog)
+        })
     }
 
     const renderDog = (dog) => {
@@ -24,12 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         table.append(tr)
     }
 
-    const renderDogs = (dogs) => {
-        dogs.forEach(dog => {
-            renderDog(dog)
-        })
-    }
-
     const populateEditFields = (button) =>  {
         const form = document.getElementById('dog-form')
         const dogRow = button.parentElement.parentElement
@@ -43,8 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resetDogsTable = () => {
         const table = document.querySelector('table')
-        const dogRows = document.querySelectorAll('.dog-row')
-        dogRows.forEach(dogRow => table.remove(dogRow))
+        // const dogRows = document.querySelectorAll('.dog-row')
+        // dogRows.forEach(dogRow => table.remove(dogRow))
+        table.innerHTML = ''
     }
 
     const dogEdit = (id, configObj) => {
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(dog => {
                 resetDogsTable()
                 getDogs()
+                console.log(`${dog.name} has been updated.`)
             })
     }
 
@@ -79,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(editDogObj)
             }
             dogEdit(id, configObj)
+            form.reset()
         }
 
     })
