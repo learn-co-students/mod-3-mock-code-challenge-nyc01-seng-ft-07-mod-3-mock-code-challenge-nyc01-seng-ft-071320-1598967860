@@ -2,33 +2,33 @@
   "dogs": [
     {
       "id": 1,
-      "name": "2",
-      "breed": "3",
-      "sex": "5"
-    },
-    {
-      "id": 2,
-      "name": "e",
-      "breed": "es",
-      "sex": "e"
-    },
-    {
-      "id": 3,
-      "name": "Snickers",
-      "breed": "Dachshund",
-      "sex": "males"
-    },
-    {
-      "id": 4,
-      "name": "Harvey",
-      "breed": "Irish Spaniel",
+      "name": "Steveee",
+      "breed": "doge",
       "sex": "male"
     },
     {
+      "id": 2,
+      "name": "Kiwi",
+      "breed": "chihuahua",
+      "sex": "male"
+    },
+    {
+      "id": 3,
+      "name": "miso",
+      "breed": "chihuahua",
+      "sex": "male"
+    },
+    {
+      "id": 4,
+      "name": "5",
+      "breed": "5",
+      "sex": "5"
+    },
+    {
       "id": 5,
-      "name": "Gracie",
-      "breed": "Miniature Pinscher",
-      "sex": "female"
+      "name": "miso",
+      "breed": "chihuahua",
+      "sex": "male"
     },
     {
       "id": 6,

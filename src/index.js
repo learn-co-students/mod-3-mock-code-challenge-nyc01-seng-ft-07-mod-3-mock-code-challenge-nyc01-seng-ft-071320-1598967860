@@ -3,11 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   clickListener();
   submitHandler();
 });
-
 const baseUrl = "http://localhost:3000/dogs/";
-
-//render list of dogs w/ fetch
-
 const fetchDogs = () => {
   fetch(baseUrl)
     .then((res) => res.json())
@@ -17,62 +13,51 @@ const fetchDogs = () => {
 };
 function renderDog(dogs) {
   const dogTable = document.querySelector("table");
+  dogTable.innerHTML = "";
   for (dog of dogs) {
     const tr = document.createElement("tr");
-    // tr.setAttribute("data-id", dog.id);
+    tr.setAttribute("data-id", dog.id);
 
-    tr.innerHTML = `<td class="dog-name">${dog.name}</td>
-    <td>${dog.breed}</td>
-    <td>${dog.sex}</td><td>
-    <button class="edit-button" data-id=${dog.id}>Edit</button></td>`;
-
+    tr.innerHTML = `
+    <td class="dog-name" data-id=${dog.id}>${dog.name}</td>
+    <td class="dog-breed" data-id=${dog.id}>${dog.breed}</td>
+    <td class="dog-sex" data-id=${dog.id}>${dog.sex}</td>
+    <td><button class="edit-button" data-id=${dog.id}>Edit</button></td>
+    `;
     dogTable.append(tr);
   }
 }
-//render a working edit button
 
 const clickListener = (e) => {
-  //   const eButton = document.querySelector(".edit-button");
   const form = document.querySelector("form");
   document.addEventListener(`click`, function (e) {
     if (e.target.matches(".edit-button")) {
-      const currentRow = e.target.parentElement.parentElement;
+      const dataId = event.target.getAttribute("data-id");
 
-      const inputTextDogName =
-        //e.target.parentElement.parentElement.firstChild.textContent;
-        currentRow.querySelector(".dog-name").textContent;
-      const inputTextDogBreed =
-        e.target.parentElement.parentElement.firstChild.nextElementSibling
-          .textContent;
-      const inputTextDogSex =
-        e.target.parentElement.parentElement.firstChild.nextElementSibling
-          .nextElementSibling.textContent;
+      const dogName = document.querySelector(`td[data-id="${dataId}"].dog-name`)
+        .textContent;
 
-      const dogId = parseInt(e.target.dataset.id);
-      //specific id of that dog
-      //string
+      const dogBreed = document.querySelector(
+        `td[data-id="${dataId}"].dog-breed`
+      ).textContent;
 
-      form.name.value = inputTextDogName;
-      form.breed.value = inputTextDogBreed;
-      form.sex.value = inputTextDogSex;
+      const dogSex = document.querySelector(`td[data-id="${dataId}"].dog-sex`)
+        .textContent;
+
+      form.name.value = dogName;
+      form.breed.value = dogBreed;
+      form.sex.value = dogSex;
       form.submit.id = dogId;
-      //form value was submit (was a reference)
     }
   });
 };
 
-//submit handler
-//create button, use prevent default
 const submitHandler = () =>
   document.addEventListener("submit", function (event) {
-    // event.preventDefault();
-    // const form = document.querySelector("form");
-    const form = event.target;
-    //give form id's
-    // const button = event.target;
+    event.preventDefault();
 
-    // We don't need to use event.target in a SUBMIT event handler
-    // because the event.target will always target the FORM
+    const form = document.querySelector("form");
+
     const name = form.name.value;
     const breed = form.breed.value;
     const sex = form.sex.value;
@@ -83,7 +68,7 @@ const submitHandler = () =>
       breed: breed,
       sex: sex,
     };
-    // form.reset;
+
     const options = {
       method: "PATCH",
       headers: {
@@ -94,9 +79,10 @@ const submitHandler = () =>
     };
     fetch(baseUrl + id, options)
       .then((res) => res.json())
+      .then((dog) => {
+        fetchDogs();
+      })
       .catch((error) => {
         console.log("error");
       });
   });
-
-// click handler
